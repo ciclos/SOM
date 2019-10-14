@@ -502,7 +502,7 @@
       </g>
       <g>
         <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" font-family="'DejaVu Serif'" transform="matrix(1,0,0,1,-291,-206)" stroke-linecap="butt">
-          <text x="382.1984" xml:space="preserve" y="1974.9191" stroke="none">Tengo que mandar un texto codificado en ascii extendido, con 18456 palabras, ¿cuanto</text>
+          <text x="382.1984" xml:space="preserve" y="1974.9191" stroke="none">Tengo que mandar un texto codificado en ascii extendido, con 18456 caracteres, ¿cuanto</text>
           <text x="382.1984" xml:space="preserve" y="1988.8878" stroke="none">tardare a una velocidad de 1MB/s?</text>
         </g>
       </g>
