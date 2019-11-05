@@ -172,20 +172,19 @@
             <text x="1291.3893" xml:space="preserve" y="555.6561" stroke="none">Gestión de procesos</text>
           </g>
         </g>
-        <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" stroke-dasharray="6,2" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,423,-41)" stroke-linecap="butt">
-          <rect x="1252.8012" y="525.997" fill="none" width="241.0121" rx="4" ry="4" height="48.2401"/>
-        </g>
       </a>
     </g>
     <g id="y.node.15">
-      <g fill="rgb(255,153,204)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,423,-41)" stroke="rgb(255,153,204)">
-        <rect x="1252.8012" y="583.2994" width="241.0121" rx="4" ry="4" height="48.2401" stroke="none"/>
-      </g>
-      <g>
-        <g font-size="16px" stroke-linecap="butt" transform="matrix(1,0,0,1,423,-41)" text-rendering="geometricPrecision" font-family="'DejaVu Serif'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-          <text x="1291.5182" xml:space="preserve" y="612.9586" stroke="none">Gestión de memoria</text>
+      <a xlink:href="memoria.svg">
+        <g fill="rgb(255,153,204)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,423,-41)" stroke="rgb(255,153,204)">
+          <rect x="1252.8012" y="583.2994" width="241.0121" rx="4" ry="4" height="48.2401" stroke="none"/>
         </g>
-      </g>
+        <g>
+          <g font-size="16px" stroke-linecap="butt" transform="matrix(1,0,0,1,423,-41)" text-rendering="geometricPrecision" font-family="'DejaVu Serif'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
+            <text x="1291.5182" xml:space="preserve" y="612.9586" stroke="none">Gestión de memoria</text>
+          </g>
+        </g>
+      </a>
     </g>
     <g id="y.node.16">
       <g fill="rgb(255,153,204)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,423,-41)" stroke="rgb(255,153,204)">
