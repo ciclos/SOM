@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Gestión remota de usuarios</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-actividades.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1>Interfaz de comandos en Windows </h1>
+    <div id="migasPan">
+      <a href="../index.html"> indice </a>
+    </div>
+  </header>
+
+  <nav class="navegacion">
+    <h3>Actividades</h3>
+
+  </nav>
+
+  <section class="actividades">
+    <article class="ejercicio">
+      Crea un archivo por lotes que haga lo siguiente:
+      <ul>
+        <li>
+          Crear una directorio llamado: EJERCICIO1, con las siguientes carpetas dentro: Administrativos, Directivos y
+          Programadores.
+        </li>
+        <li>
+          Dentro de programadores crea 5 carpetas llamadas: programador1,programador2,programador3,programador4 y
+          programador5.
+        </li>
+        <li>
+          Dentro de administrativos crea 3 carpetas llamadas: administrativo1,administrativo2 y administrativo3.
+        </li>
+        <li>
+          Dentro de directivos crea 2 carpetas llamadas: directivo1 y directivo2.
+        </li>
+        <li>
+          Dentrod de cada carpeta crea una archivo denominado datosPersonales.txt, con los datos personales de cada
+          persona. Los datos
+          inventalos.
+        </li>
+      </ul>
+      <ul class="ampliacion">
+        <li>
+          Crea también un archivo denominado nominas.txt con lo que cobra cada persona.
+        </li>
+        <li>
+          Dentro del los administrativo 2 crea otra carpeta llamada: curriculums. Dentro crea 2 archivos llamados
+          curriculums. Inventate los datos de los mismos.
+        </li>
+        <li>
+          Bajas 5 imagenes de Internet y haz que el script copie esas imagenes dentro de la carpeta del directivo1.
+        </li>
+      </ul>
+      <ul class="ampliacion">
+        <li>
+          Uno de los programadores es un graciosillo y ha creado un script que copia un script llamado ejecutame.bat que
+          borra el archivo nomina.txt, si está en
+          el mismo directorio. Además ha creado otro llamado distribuidor.bat que lo copia en todos los directorios de
+          la carpeta EJERCICIO1.
+          Crea los dos scripts.
+        </li>
+      </ul>
+      <div class="tooltip"><strong>&nbsp;&nbsp;!</strong></br>
+        <span class="tooltiptext">
+          <ul>
+            <li>
+              Para crear los archivos usa:<br> echo "Nombre: Diego" >> datosPersonales.txt
+            </li>
+          </ul>
+        </span>
+      </div>
+    </article>
+    <article class="ejercicio">
+      Añade un disco nuevo a la maquina virtual. De 1GB. Formatealo en NTFS.
+      Crea un archivo por lotes que haga lo siguiente:
+      <ul>
+        <li>
+          Crea en la unidad D:\ un directorio llamado MODULOS y dentro un directorio para cada modulo: SOM, RED, FOL,
+          ING, AW y MON.
+        </li>
+        <li>
+          Crea un directorio dentro de cada modulo, que se llame "Apuntes" y otro "trabajos". Dentro de trabajos un
+          directorio para 5 alumnos. Inventante el nombre de los alumnos.
+        </li>
+        <li>
+          Dentro de trabajos crea un archivo dentro de cada directorio de los alumnos llamado: trabajo.txt
+        </li>
+        <li>
+          Dentro de apuntes crea un archivo para cada modulo llamado: apuntes.txt
+        </li>
+      </ul>
+      <ul class="ampliacion">
+        <li>
+          Crea un script que llamado entrega.bat, que recoja todos los trabajos de todos los alumnos, del modulo de SOM
+          y los guarde en el
+          escritorio dentro de un directorio llamado paraCorregir. Este directorio también lo crea el script.
+        </li>
+      </ul>
+      <ul class="ampliacion">
+        <li>
+          Modifica el anterior script para que además borre los trabajos entregados del directorio de los alumnos.
+        </li>
+      </ul>
+    </article>
+    <article class="ejercicio">
+      Crea un archivo por lotes que haga lo siguiente:
+      <ul>
+        <li>
+          Renombre los directorios creados en el apartado anterior, de la siguiente forma: SOM en SOR, AW en AO,
+          FOL en EIE, MON en SEG y RED en SRD.
+        </li>
+        <li>
+          Una vez cambiados los nombres el script borra el contenido del direcotorio "apuntes" y el de "trabajos".
+          Borrando también
+          los directorios de los alumnos.
+        </li>
+      </ul>
+    </article>
+
+  </section>
+</body>
+<script type="text/javascript">
+  var mostrando = 0;
+  ejercicios = document.querySelectorAll(".ejercicio");
+  navegacion = document.querySelector("nav.navegacion");
+  ejercicios[0].style.display = "block"; // Por defecto mostramos el primer ejercicio
+
+  for (var i = 0; i < ejercicios.length; i++) {
+    navegacion.innerHTML += '<a onclick="cambiar(this)">' + (i + 1) + '</a>';
+  }
+
+  function cambiar(enlace) {
+    indice = (enlace.innerHTML - 1);
+    ejercicios[mostrando].style.display = "none";
+    ejercicios[indice].style.display = "block";
+    mostrando = indice;
+  }
+</script>
+
+</html>
