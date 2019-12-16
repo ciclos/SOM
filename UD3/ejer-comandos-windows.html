@@ -12,15 +12,13 @@
 
 <body>
   <header class="titulo">
-    <h1>Interfaz de comandos en Windows </h1>
+    <h1>Actividades: comandos Windows</h1>
     <div id="migasPan">
       <a href="../index.html"> indice </a>
     </div>
   </header>
 
   <nav class="navegacion">
-    <h3>Actividades</h3>
-
   </nav>
 
   <section class="actividades">
@@ -127,22 +125,8 @@
 
   </section>
 </body>
-<script type="text/javascript">
-  var mostrando = 0;
-  ejercicios = document.querySelectorAll(".ejercicio");
-  navegacion = document.querySelector("nav.navegacion");
-  ejercicios[0].style.display = "block"; // Por defecto mostramos el primer ejercicio
 
-  for (var i = 0; i < ejercicios.length; i++) {
-    navegacion.innerHTML += '<a onclick="cambiar(this)">' + (i + 1) + '</a>';
-  }
-
-  function cambiar(enlace) {
-    indice = (enlace.innerHTML - 1);
-    ejercicios[mostrando].style.display = "none";
-    ejercicios[indice].style.display = "block";
-    mostrando = indice;
-  }
+<script type="text/javascript" src="../js/funciones.js">
 </script>
 
 </html>

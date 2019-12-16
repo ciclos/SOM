@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title> Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1>Script en Linux</h1>
+  </header>
+
+  <section class="apuntes">
+    <article>
+      <h2> Script en Bash Shell</h2>
+      <p>
+        Un script es un archivo de texto que contiene una serie de comandos interpretables por el sistema en el que se
+        va a ejecutar. Es importante que este archivo sea un archivo de texto sin formato, pues lo que se ejecutan son
+        ordenes como si se usara la linea de comandos manualmente, de tal forma que cualquier carácter no imprimible
+        distinto del espacio o retorno de carro hará el archivo no interpretable.
+        Estos archivos contienen un comando (o agrupación de comandos por tuberias) por línea.
+
+        El archivo se va ejecutando linea a linea.
+      </p>
+
+    </article>
+    <article>
+      <h2> Estructura minima</h2>
+      <h3>Nombre</h3>
+      <p>
+        Un archivo de script en shell puede tener cualquier nombre, pero cuidado, no le pongas nombres de comandos del
+        sistema. La extensión del archivo podría ser cualquiera, se le pone .sh para distinguirlo de otros tipos de
+        archivos.
+      </p>
+      <h3>Estructura mínima</h3>
+      <p>
+        Todos los archivos en shell bash deben comenzar indicando donde se ubica el interprete de comandos, es decir, el
+        programa que sabe que significado tiene cada comando. A continuación se ubica la lista de comandos a ejecutar.
+
+        El mínimo script que podríamos escribir es el siguiente:
+       
+      </p>
+      <img src="imagenes/estructura-minima.png" class="codigo" alt="">
+      <h3>Permisos</h3>
+      <p>
+        Al archivo hay que darle permisos de ejecución, que por defecto no se asignan al crear el archivo. [ Estos
+        permisos pueden asignarse con el comando chmod]
+      </p>
+      <h3>Comentarios
+      </h3>
+      <p>Todo lenguaje de programación permite escribir comentarios que son líneas de texto para aclarar el código
+        fuente. Los comentarios en Bash se indican con el símbolo #. Por ejemplo, para el script anterior podríamos
+        escribir el siguiente comentario:
+
+      </p>
+      <img src="imagenes/comentarios.png" class="codigo"  alt="">
+      <h3>Invocación</h3>
+      <p>Cuando se ejecuta un comando se dice que se está invocando el comando. Los comandos del sistema son archivos
+        ejecutables ubicados en sitios específicos del sistema y se pueden invocar desde cualquier posición del árbol de
+        directorios, mediante la línea de comando. En cambio, un archivo de script propio, que esta en una ubicación
+        desconocida para el sistema se debe invocar indicando la ruta para llegar a él desde la ubicación en la que
+        estamos. Lo usual es posicionarnos dentro del directorio que contiene el script y teclear:
+
+        <p>./nombreScript.sh</p>
+
+        El punto barra indica que busque el archivo ejecutable dentro del mismo directorio en el que nos encontramos.
+      </p>
+    </article>
+    <article>
+      <h2>Variables</h2>
+      <p>Una variable es una posición de memoria donde podemos almacenar información. En bash podemos declarar Variables
+        y asignarles un valor simplemente escribiendo un nombre seguido de un igual y un valor. Para obtener el valor de la
+        variable tenemos que anteponer a la variable el simbolo $. Por ejemplo:
+        <codigo>
+          #!/bin/bash <br>
+          var=Diego <br>
+          echo $Diego
+        </codigo>
+      </p>
+
+      <h2>Obtener datos por teclado</h2>
+      <p>Si queremos que el usuario pueda introducir datos por teclado, como por ejemplo el valor de una variable, utilizamos
+        la instrucción read, la cual se queda a la espera de que el usuario presione la tecla de intro ( o retorno de carro). 
+        Por ejemplo:
+        <codigo>
+          #!/bin/bash <br>
+          echo dime un numero <br>
+          read numero <br>
+          echo Has dicho: $numero
+        </codigo>
+
+      </p>
+
+    </article>
+  </section>
+</body>
+
+</html>
