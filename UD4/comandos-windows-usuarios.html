@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title> Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1> Comandos Windows para gestión de usuarios</h1>
+  </header>
+
+  <section class="apuntes">
+    <article>
+      <h2> net user </h2>
+      <p>
+       Este comando permite gestionar los usuarios desde la línea de comandos. <br>
+       Si escribimos el comando, sin mas, nos muestra los usuarios del sistema. <br>
+       En cambio, para añadir un usuario nuevo escribiriamos:
+       <codigo>
+         net user nombre_usuario password /ADD
+       </codigo>
+       Para eliminar un usuario el comando es muy similar, como se muestra a continuación:
+       <codigo>
+        net user nombre_usuario password /DELETE
+      </codigo>
+      </p>
+      <h2>net localgroup</h2>
+      <p>
+        Permite crear grupos y añadir usuarios al mismo, de la siguiente forma:
+        <codigo>
+          net localgroup nombre_grupo nombre_usuario /add
+        </codigo>
+        Para saber los usuarios incluidos en grupo:
+        <codigo>
+          net localgroup nombre_grupo
+        </codigo>
+        Para borrar el grupo:
+        <codigo>
+          net localgroup nombre_grupo /delete
+        </codigo>
+        Para sacar un usuario de un grupo:
+        <codigo>
+          net localgroup nombre_grupo nombre_usuario /delete
+        </codigo>
+        
+        
+      </p>
+    </article>
+
+  </section>
+</body>
+
+</html>

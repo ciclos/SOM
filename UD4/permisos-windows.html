@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title> Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1>Permisos y descriptores de seguridad</h1>
+  </header>
+
+  <section class="apuntes">
+    <article>
+      <h2>Permisos y descriptores de seguridad</h2>
+      <p>
+        Cada contenedor y objeto de la red tiene información de control de acceso adjunta. Esta información se denomina
+        descriptor de seguridad y controla el tipo de acceso permitido a usuarios y grupos. El descriptor de seguridad
+        se crea automáticamente junto con el contenedor u objeto que se crea. Un ejemplo típico de objeto con un
+        descriptor de seguridad es un archivo.
+      </p>
+      <p>
+        Los permisos se definen en el descriptor de seguridad de un objeto. Se asocian o asignan a usuarios y grupos
+        específicos. Por ejemplo, para el archivo Temp.dat, el grupo de cuentas predefinidas de administrador podría
+        tener asignados permisos para leer, escribir y eliminar, mientras que el grupo de operadores de copia de
+        seguridad sólo permisos para leer y escribir.
+      </p>
+      <p>
+        Cada asignación de permisos a un usuario o grupo se representa en el sistema como una entrada de control de
+        acceso (ACE). Al conjunto completo de entradas de permiso de un descriptor de seguridad se le denomina conjunto
+        de permisos o lista de control de acceso (ACL). De esta forma, para un archivo denominado Temp.dat, el conjunto
+        de permisos incluye dos entradas de permiso: una para el grupo de cuentas predefinidas de administrador y otra
+        para el grupo de operadores de copia de seguridad.
+      </p>
+      <H2>Permisos explícitos y heredados</H2>
+      <p>
+        Hay dos tipos de permisos: permisos explícitos y permisos heredados.
+        <ul>
+          <li>Los permisos explícitos son aquellos que se establecen de forma predeterminada en objetos que no son
+            secundarios cuando se crea el objeto, o los que crea el usuario en objetos secundarios, primarios o que no
+            son secundarios.</li>
+          <li>Los permisos heredados son los que se propagan a un objeto desde un objeto primario. Los permisos
+            heredados facilitan la tarea de administrar permisos y aseguran su coherencia entre todos los objetos de un
+            contenedor determinado.</li>
+        </ul>
+      </p>
+      <p>
+        De forma predeterminada, los objetos de un contenedor heredan los permisos desde ese contenedor cuando se crean
+        los objetos. Por ejemplo, cuando crea la carpeta Mi carpeta, todas las subcarpetas y archivos creados en la
+        carpeta Mi carpeta heredan de forma automática los permisos de la carpeta. De esta manera, la carpeta Mi carpeta
+        tiene permisos explícitos, mientras que las subcarpetas y los archivos heredan los permisos.
+      </p>
+      <p>
+        Los permisos Denegar heredados no impiden el acceso a un objeto si éste cuenta con una entrada de permiso
+        explícito Permitir. Los permisos explícitos tienen prioridad sobre los permisos heredados, incluidos los
+        permisos Denegar heredados.
+      </p>
+      <h2>Como ver los permisos</h2>
+      <p>
+        Podemos acceder a los permisos haciendo click derecho sobre cualquier objeto ( carpeta o archivo ) y
+        seleccionando la pestaña seguridad.
+      </p>
+      <img src="imagenes/21.png" alt="">
+    </article>
+
+    <article>
+      <p>
+        <h2>Cambiar los permisos de una carpeta</h2>
+        Para cambiar los permisos de una carpeta en Windows tenemos dos opciones: permisos y permisos especiales.
+        Podemos acceder a los permisos desde las propiedades de los objetos, concrétamente en la pestaña seguridad, como
+        se ve a continuación:
+      </p>
+      <img src="imagenes/31.png" alt="">
+      <p>
+        En cambio a los permisos especiales debemos acceder desde el botón opciones avanzadas.
+      </p>
+      <img src="imagenes/32.png" alt="">
+      <h2>Comprobar los permisos efectivos</h2>
+      <p>Los permisos que finalmente se aplican a un objeto ( llamados permisos efectivos ) son el resultado de aplicar
+        los permisos específicos del objeto y los heredados. Lo que realmente se está aplicando se puede comprobar de la
+        siguiente forma:</p>
+      <img src="imagenes/33.png" alt="">
+      <p>En este <a href="imagenes/tablaPermisos.png">enlace</a> puedes ver la correspondencia entre los permisos
+        simples y los especiales.</p>
+      <h2>Permisos heredados</h2>
+      <p>
+        Los permisos heredados son los que se propagan a un objeto desde un objeto primario. Los permisos heredados
+        facilitan la tarea de administrar permisos y aseguran su coherencia entre todos los objetos de un contenedor
+        determinado.
+
+        Si las casillas de permisos Permitir y Denegar de las distintas partes de la interfaz de usuario de control de
+        acceso están sombreadas cuando ve los permisos de un objeto, el objeto tendrá permisos heredados de un objeto
+        primario.
+        <img src="imagenes/22.png" alt="">
+        Podemos quitar los permisos heredados de un objeto de la siguiente forma:</p>
+
+      <img src="imagenes/23.png" alt="">
+      <p>
+        <h2>Propietario</h2>
+        Cuando se crea un objeto, se le asigna un propietario. De forma predeterminada, el propietario es el creador del
+        objeto. Sean cuales sean los permisos que se definan en un objeto, el propietario del objeto siempre puede
+        cambiarlos.
+
+        La propiedad de un objeto puede cambiarse de la siguiente forma:
+      </p>
+      <img src="imagenes/41.png" alt="">
+    </article>
+
+  </section>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <img class="modal-content" id="img01">
+
+  </div>
+  <script type="text/javascript" src="../js/funciones.js">
+  </script>
+
+</body>
+
+</html>
