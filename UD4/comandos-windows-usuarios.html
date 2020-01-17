@@ -32,7 +32,11 @@
       </p>
       <h2>net localgroup</h2>
       <p>
-        Permite crear grupos y añadir usuarios al mismo, de la siguiente forma:
+        Permite crear grupos y añadir usuarios al mismo. Para añadir un grupo hariamos lo siguiente:
+        <codigo>
+          net localgroup nombre_grupo /add
+        </codigo>
+        Seguidamente para añadir usuarios al grupo:
         <codigo>
           net localgroup nombre_grupo nombre_usuario /add
         </codigo>
