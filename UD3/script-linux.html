@@ -44,7 +44,7 @@
         programa que sabe que significado tiene cada comando. A continuación se ubica la lista de comandos a ejecutar.
 
         El mínimo script que podríamos escribir es el siguiente:
-       
+
       </p>
       <img src="imagenes/estructura-minima.png" class="codigo" alt="">
       <h3>Permisos</h3>
@@ -59,7 +59,7 @@
         escribir el siguiente comentario:
 
       </p>
-      <img src="imagenes/comentarios.png" class="codigo"  alt="">
+      <img src="imagenes/comentarios.png" class="codigo" alt="">
       <h3>Invocación</h3>
       <p>Cuando se ejecuta un comando se dice que se está invocando el comando. Los comandos del sistema son archivos
         ejecutables ubicados en sitios específicos del sistema y se pueden invocar desde cualquier posición del árbol de
@@ -73,9 +73,36 @@
       </p>
     </article>
     <article>
+      <p>
+        <h2>Parametros</h2>
+        Los parámetros posicionales o argumentos son valores que acompañan a la invocación del comando y que permiten
+        darle datos de entrada al comando para que trabaje con ellos. Por ejemplo, podemos usar el comando para listar
+        el contenido de un directorio sin parametros:
+        <img src="imagenes/parametros-1.png" alt="">
+        o con parametros:
+        <img src="imagenes/parametros-2.png" alt="">
+        Nuestros script pueden tener parametros. Podemos acceder a ellos mediante sus nombres, que son: $1, $2, $3, ...
+        Como ves lo que se indica es la posición del parametro, pues los parametros se ponen detras del nombre del
+        script, como una lista separada por espacios. Es decir, si tuvieramos un script llamado ejemplo2.sh, con el
+        siguiente contenido:
+        <img src="imagenes/parametros-3.png" alt="">
+        Podriamos invocar el script de la siguiente forma:
+        <img src="imagenes/parametros-4.png" alt="">
+        Como puedes ver la frase va entre comillas dobles. Esto es porque, como hemos dicho, los parametros se separan
+        por espacios, si no ponemos las comillas el sistema pensara que cada palabra es un parametro. Mira lo que pasa
+        si no ponemos las comillas:
+        <img src="imagenes/parametros-5.png" alt="">
+        Si modificamos el código de la siguiente forma:
+        <img src="imagenes/parametros-6.png" alt="">
+        Y lo invocamos sin comillas. Observa la salida:
+        <img src="imagenes/parametros-7.png" alt="">
+      </p>
+    </article>
+    <article>
       <h2>Variables</h2>
       <p>Una variable es una posición de memoria donde podemos almacenar información. En bash podemos declarar Variables
-        y asignarles un valor simplemente escribiendo un nombre seguido de un igual y un valor. Para obtener el valor de la
+        y asignarles un valor simplemente escribiendo un nombre seguido de un igual y un valor. Para obtener el valor de
+        la
         variable tenemos que anteponer a la variable el simbolo $. Por ejemplo:
         <codigo>
           #!/bin/bash <br>
@@ -85,8 +112,10 @@
       </p>
 
       <h2>Obtener datos por teclado</h2>
-      <p>Si queremos que el usuario pueda introducir datos por teclado, como por ejemplo el valor de una variable, utilizamos
-        la instrucción read, la cual se queda a la espera de que el usuario presione la tecla de intro ( o retorno de carro). 
+      <p>Si queremos que el usuario pueda introducir datos por teclado, como por ejemplo el valor de una variable,
+        utilizamos
+        la instrucción read, la cual se queda a la espera de que el usuario presione la tecla de intro ( o retorno de
+        carro).
         Por ejemplo:
         <codigo>
           #!/bin/bash <br>
@@ -94,12 +123,41 @@
           read numero <br>
           echo Has dicho: $numero
         </codigo>
-
       </p>
-
+    </article>
+    <article>
+      <p>
+        <h2> Redirección </h2>
+        Redireccionar significa capturar la salida de un archivo, comando, programa o script y dárselo como entrada a
+        otro comando, programa o script. Las redirecciones mas comunes se indican de la siguiente forma:
+        <ul>
+          <li>comando > archivo Redirecciona la salida del comando a un archivo y destruye lo que tuviera el archivo.
+          </li>
+          <li>comando >> archivo Redirecciona la salida del comando a un archivo y le añade la salida a lo que tuviera
+            el archivo</li>
+        </ul>
+      </p>
+      <p>
+        <h2>Tuberias</h2>
+        Una tubería ( pipe en ingles ) es una conexión entre varios comandos, de tal forma que la salida de uno de ellos
+        se convierte en la entrada de otro. Esa entrada son los datos con los que va a trabajar el comando que los
+        recibe. Podemos concatenar tantas tuberías y comandos como queramos.
+<br>
+        Las tuberías son muy útiles cuando se necesita filtrar información. En el siguiente ejemplo se usa ls para
+        mostrar datos y se continua especificando condiciones por medio de tuberías.
+        <img src="imagenes/tuberias.png" alt="">
+      </p>
     </article>
   </section>
-  <script src="../js/prism.js"></script>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <img class="modal-content" id="img01">
+
+  </div>
+
+  <script type="text/javascript" src="../js/funciones.js">
+  </script>
 </body>
 
 </html>
