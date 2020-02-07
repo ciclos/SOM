@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1> Perfiles de linux </h1>
+  </header>
+  <section class="apuntes">
+    <article>
+
+      <h2>profile y bashrc</h2>
+
+      <p> Son dos archivos de configuración relacionados con la administración de los usuarios. El archivo profile se ejecuta
+        cuando qualquier usuario inicia la sesión y bashrc cuando cualquier usuario ejecuta el programa bash.
+      Todos los usuarios contienen en su home una replica oculta de estos
+        archivos para su personalización. Estos archivos se encuentran en el home de cada usuario.
+      </p>
+      <p>
+        Podemos usar estos archivos para personalizar los perfiles de los usuarios, por ejemplo podemos cambiar los 
+        colores del comando ls:
+        <img src="imagenes/personalizarconsola.png" alt="">
+        Una vez puesto el codigo en .bashrc, no se aplica hasta que reiniciemos la terminal. ( no hace falta apagar la maquina
+        teclea "exit" y vuelve a logearte con el mismo usuario)
+        Con el codigo anterior le estamos diciendo que cree un alias de tal forma que siempre que pongamos ls, el sistema lo 
+        traduce a ls --color. A su vez ls --color que hace es coger la variable LS_COLORS que se define después y que establece
+        los colores para directorios ( di ) y ficheros ( fi ). Debido al codigo anterior obtendremos el siguiente resultado 
+        al hacer ls:
+        <img src="imagenes/personalizarconsola-2.png" alt="">
+        Como ves los ficheros van en blanco y los directorios en azulito. Prueba diferentes numeros hasta encontrar la combinacion
+        de colores que te guste.
+      </p>
+      <p>
+         En .profile puedes crear un mensaje de bienvenida, puedes escribir el siguiente codigo al final del archivo:
+         <codigo>
+           echo Hola! Vamos a hechar unas partidillas a la consola, pero a la consola de Linux.
+         </codigo>
+      </p>
+      <h3>Alias</h3>
+      <p>
+        Los alias nos permiten crear alias para cualquier combinación de comandos. El siguiente es un ejemplo inutil:
+        <img src="imagenes/alias.png" alt="">
+        Que daria como resultado:
+        <img src="imagenes/alias-2.png" alt="">
+      </p>
+      <h2>Vim</h2>
+      <p>
+        Podemos tambien personalizar Vim también, pero en este caso con el archivo .vimrc, que debemos crear. Por ejemplo,
+        el comando <b>colorschema</b> nos permite cambiar los colores que usa vim y podemos poner lo siguiente en .vimrc 
+        para conseguir el mismo resultado:
+        <codigo>
+          colo blue
+        </codigo>
+        Lo anterior tendrá como resultado que al abrir el vim la proxima vez se le aplique el esquema de colores BLUE.
+
+      <p>
+
+    </article>
+
+
+
+  </section>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+
+  </div>
+
+  <script type="text/javascript" src="../js/funciones.js">
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title> Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1>Compresion</h1>
+  </header>
+
+  <section class="apuntes">
+    <article>
+      <h2>Compresion</h2>
+      <p>
+        Comprimir un archivo o un directorio consiste en crear un nuevo archivo que contiene toda la información del
+        archivo
+        o directorio, pero en un formato que permite almacenar esos datos usando menos bits. Esto es posible porque los
+        formatos
+        internos que se usan los ficheros para almacenar la información creada por el usuario contienen datos que pueden
+        ser
+        redundantes, es decir, repetidos. Por ejemplo, simplificando mucho, imaginemos una imagen compuesta un paisaje
+        donde el cielo es azul por
+        completo, en un solo tono de azul. Ese cielo está compuesto por muchos "puntos" azules, todos iguales,
+        imaginemos que un millón,
+        por lo que en la imagen se almacena un millón de veces el punto azul. La compresión en este caso consistiría en
+        crear un nuevo
+        archivo donde se indique que debe repetir un millón de veces el punto azul en vez guardar un millón de puntos
+        azules.
+      </p>
+      <p>
+        Dependiendo del algoritmo de compresión que se utilice podemos tener mejores resultados de compresión,
+        dependiendo también
+        de que tipo de archivo sea el original. Los algoritmos de compresión mas comunes son: zip, rar, tar y gz.
+      </p>
+      <h2>Compresión en linux</h2>
+      <p>
+        Todos los linux traen una herramienta de compresión en linea de comandos llamada <b>tar.</b> Como todos los
+        comandos tiene
+        multitud de opciones, pero basicamente necesitaremos los siguientes. <br>
+        Para poder empaquetar ficheros, utilizamos el siguiente comando:
+        <codigo>tar -cvf archivo.tar /dir/a/comprimir/</codigo>
+        <ul>
+          <li>-c : indica a tar que cree un archivo.</li>
+          <li>
+            -v : indica a tar que muestre lo que va empaquetando.</li>
+          <li>-f : indica a tar que el siguiente argumento es el nombre del fichero.tar.</li>
+        </ul>
+        Para poder desempaquetar los ficheros .tar, utilizamos el siguiente comando:
+
+        <codigo> tar -xvf archivo.tar</codigo>
+        <ul>
+          <li>-x : indica a tar que descomprima el fichero.tar.
+          </li>
+          <li>-v : indica a tar que muestre lo que va desempaquetando.
+          </li>
+          <li>  -f : indica a tar que el siguiente argumento es el nombre del fichero a desempaquetar.
+          </li>
+        </ul>
+        Si se quiere ver el contenido de un fichero .tar, se utiliza el siguiente comando:
+
+        <codigo>tar -tf archivo.tar</codigo>
+        <ul>
+          <li> -t : Lista el contenido del fichero .tar
+          </li>
+          <li>      -f : indica a tar que el siguiente argumento es el nombre del fichero a ver.
+          </li>
+        </ul>
+       
+      </p>
+
+    </article>
+
+  </section>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <img class="modal-content" id="img01">
+
+  </div>
+  <script type="text/javascript" src="../js/funciones.js">
+  </script>
+
+</body>
+
+</html>
