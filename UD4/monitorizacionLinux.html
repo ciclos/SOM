@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Apuntes HW</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Actividades">
+    <meta name="description" content="Actividades">
+    <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+    <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header class="titulo">
+        <h1> Monitorización del sistemas </h1>
+    </header>
+    <section class="apuntes">
+        <article>
+            <h2> Monitorización de Linux</h2>
+            <p>La monitorización de Linux puede hacerse de muchas formas, pero la mas común es mediante comandos y la
+                consulta de
+                los archivos de configuración y log( en Linux todo son archivos de texto ). Si la consulta es
+                puntual lo normal es hacer una conexión SSH y comprobar ciertos parámetros, pero lo mas normal es crear
+                scripts que nos permitan automatizar las tareas periódicas.
+            </p>
+            <h2>Archivos de configuración </h2>
+            <p> Linux se configura por medio de archivos de texto. Algunos de los mas importantes son:</p>
+            <ul>
+                <li><strong>/etc/host: </strong> Contiene resoluciones DNS estáticas y únicas del usuario. Como mínimo
+                    contiene una entrada para
+                    localhost.</li>
+                <li><strong> /etc/resolv.conf: </strong> Contiene las direcciones IP de los servidores DNS. Se actualiza
+                    automáticamente si se
+                    configura la interfaz como DHCP o puede que contenga 127.0.0.1. En todo caso solo debería tocarse
+                    para
+                    configurar manualmente nuestro servidor DNS ( aunque eso también podemos hacerlo desde el archivo de
+                    interfaces )</li>
+                <li><strong>/etc/network/interfaces:</strong> se utiliza para definir los nombres lógicos de las
+                    interfaces de redes, a los que
+                    se les asociará una configuración determinada. El comando ifup es el encargado de relacionar una
+                    interfaz
+                    física con una interfaz lógica.</li>
+                <li><strong> /etc/passwd:</strong> contiene una linea por cada usuario del sistema indicando a que
+                    grupos.</li>
+                <li><strong></strong></li>
+            </ul>
+            <h2>Archivos de log</h2>
+            <ul>
+                <li><strong>/etc/proc</strong> Contiene directorios y archivos de log del hardware del sistema.</li>
+                <li><strong>/var/log/auth.log:</strong> contiene los accesos al sistema, incluidos los intentos
+                    fallidos.</li>
+                <li><strong>/var/log/syslog: </strong>se encarga de registrar los mensajes de seguridad del sistema.
+                </li>
+                <li><strong>/var/log/cron.log: </strong>registro del demonio cron</li>
+                <li><strong>/var/log/dpkg.log: </strong>registro de actuación sobre los paquetes del sistema</li>
+            </ul>
+            <h2> Comandos Linux</h2>
+            <ul>
+                <li>HARDWARE</li>
+                <ul>
+                    <li><strong>lshw</strong> Información de todo el hardware</li>
+                    <li><strong>lscpu</strong> Información de la CPU </li>
+                    <li><strong>lspci</strong> Información acerca de las ranuras PCI en el sistema y los dispositivos
+                        conectados a éstas</li>
+                    <li><strong>dsmeg</strong> Información de todo el hardware detectado por el sistema</li>
+                    <li><strong>fdisk -l</strong> Información sobre los discos.</li>
+                    <li><strong>lsblk</strong> Información sobre los dispositivos de bloque ( particiones, CD-ROM,
+                        volumenes
+                        vlm, etc.)</li>
+                    <li><strong>df:&nbsp;</strong>muestra el espacio libre del sistema de archivos. [df -h /]</li>
+                    <li><strong>free</strong>: proporciona información sobre el uso de memoria fisica y de swap.</li>
+
+                </ul>
+                <li>RED</li>
+                <ul>
+                    <li><strong>ifconfig:&nbsp;</strong>Muestra la configuración de las interfaces de red configuradas.
+                        Con
+                        la opción&nbsp;<strong>-a&nbsp;</strong>muestra también las no configuradas.</li>
+                    <li><strong>ifup</strong> Enciende ( levanta ) una interfaz de red.
+                    </li>
+                    <li><strong>ifdown</strong> Apaga ( baja ) una interfaz de red.
+                    </li>
+                    <li><strong>netstat</strong>: muestra información sobre los puertos.</li>
+                    <li><strong>arp</strong>: muestra información sobre las tablas ARP.</li>
+                    <li><strong>iftop</strong>: si nuestro servidor actua como proxy podemos ver las estadísticas de
+                        conexión de cada IP.</li>
+
+                </ul>
+                <li>SISTEMA</li>
+                <ul>
+                    <li><strong>uname</strong>: Información básica del sistema.</li>
+                    <li><strong>last</strong>: muestra un listado con los ultimos usuarios que han entrado al sistema.
+                    </li>
+                    <li><strong>find</strong>: busca archivos o directorios en el arbol de directorios.</li>
+                </ul>
+                <li>PROCESOS</li>
+                <UL>
+                    <li><strong>top</strong>: lista de procesos ordenados por uso de CPU</li>
+                    <li><strong>ps</strong>: pid de los procesos. Con la opción -aux obtenemos todos ordenados por
+                        numero de
+                        PID.</li>
+                    <li><strong>kill <pid>:</pid></strong> mata el proceso identificado por su PID.</li>
+                   
+                </ul>
+                <li>MISCELANEA</li>
+                <UL>
+                    <li><strong>wc</strong>: cuenta las lineas( con la opción -l) de la salida de un comando o un
+                        archivo.
+                    </li>
+                    <li><strong>time</strong>: tiempo de ejecución de un comando.</li>
+                    <li><strong>who</strong>: usuarios logueados en el sistema</li>
+                </UL>
+            </ul>
+
+        </article>
+    </section>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <img class="modal-content" id="img01">
+
+    </div>
+
+    <script type="text/javascript" src="../js/funciones.js">
+    </script>
+</body>
+
+
+</html>

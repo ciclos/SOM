@@ -53,6 +53,58 @@
         <h2> tree </h2>
         Muestra el contenido del directorio en forma de arbol.
       </p>
+      <h2>grep</h2>
+      <p>El comando grep busca dentro de un archivo las líneas que contengan el patrón que se le indica por parámetros.
+      </p>
+      <h2>cut</h2>
+      <p>El comando cut permite, como su nombre indica, cortar de una cadena de texto, las partes que nos interesen.
+        Tiene varias opciones pero las mas útiles son -c y -f. La primera para cortar una serie de caracteres
+        específicos y la segunda para cortar campos. En esta segunda opción debemos indicar cual es delimitador, es
+        decir, que indica que termina un campo y empieza el siguiente, suele ser una coma o un espacio.</p>
+      <p>Supongamos que tenemos un archivo llamado nombres.txt, con el siguiente contenido:</p>
+      <p>
+        Francisco Garcia Perez <br>
+        Fernando Camuñas Leandrez <br>
+        Federico Albacete Galan <br>
+      </p>
+      <p>Si invocamos el siguente comado: <br>
+         cut -f 2 -d " " nombres.txt <br>
+          obtemos la siguiente salida:</p>
+      <p>
+        Garcia <br>
+        Camuñas <br>
+        Albacete <br>
+      </p>
+      <p>Si invocamos el siguente comado: <br>
+         cut -c 2,3,4 nombres.txt <br>
+          obtemos la siguiente salida:</p>
+      <p>
+        ran <br>
+        ern <br>
+        ede <br>
+      </p>
+      <h2>tr</h2>
+      <p>
+        Este comando permite cambiar unos caracteres por otros. Aunque normalmente una de sus funciones mas usuales en
+        la administración de sistemas es comprimir los espacios, es decir, quitar los espacios entre palabras para dejar
+        solo uno.
+      </p>
+      <p>Por ejemplo, el comando : <br>
+         echo "Hola como estas?" | tr -s ' ' <br>
+          daría como resultado: <br>
+           Hola como estas?</p>
+      <p>Esto es muy útil cuando se usan otras herramientas, como cut, donde se debe indicar un delimitador, pues no es
+        lo mismo un espacio que varios. Por ejemplo, <br>
+         echo "Hola como estas?" | cut -f 2 -d " " <br> 
+         no nos daría el
+        resultado esperado, a no ser que hagamos: <br>
+         echo "Hola como estas?" | tr -s ' ' |cut -f 2 -d " "</p>
+      <h2>tail</h2>
+      <p>Este comando presenta por defecto las ultimas 10 lineas de un archivo. Suele ser muy útil para consultar
+        archivos de configuración o de logs del sistema. </p>
+      <p>Por ejemplo, supongamos que acabamos de añadir un usuario al sistema y queremos comprobar si ha salido bien,
+        podemos usar el comando de la siguiente forma: tail /etc/passwd. O podemos consultar las ultimas entradas del
+        log del sistema: tail /var/log/syslog.</p>
     </article>
   </section>
 </body>
