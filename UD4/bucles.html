@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title> Sistemas operativos monopuesto</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Actividades">
+    <meta name="description" content="Actividades">
+    <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+    <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header class="titulo">
+        <h1>Bucles en Bash</h1>
+    </header>
+
+    <section class="apuntes">
+        <article>
+            <h2> Bucles </h2>
+            <p>
+                Un bucle es una estructura de control que permite ejecutar una serie de acciones repetitivamente
+                mientras se cumpla una condición.
+                Si recuerdas, en los condicionales es SI se cumple una condición, hacemos una vez las acciones, en
+                cambio, con los bulces, es MIENTRAS
+                se cumpla la condición ejecutamos una y otra vez las mismas instrucciónes.
+            </p>
+            <p>Las condiciones se construyen igual que en los condicionales</p>
+            <h2>While</h2>
+            <p> El bucle while cumple la anterior definición y se escribe de la siguiente forma:
+                <codigo>
+                    while [ condición ] <br>
+                    do <br>
+                    .... acciones <br>
+                    done <br>
+                </codigo>
+            </p>
+            <h2>For</h2>
+            <p>
+                El bucle for se usa principalmente cuando la condición del bucle es alcanzar cierto numero de repeticiones o 
+                cuando se obtienen los elementos de una lista. A continuación se muestran dos ejemplos de uso de for. <br>
+                Imprimir los dias de la semana:
+                <codigo>
+                    for dia in lunes martes miercoles jueves viernes sabado domingo <br>
+                    do <br>
+                    echo $dia <br>
+                    done
+                </codigo>
+                Imprimir los numeros del 1 al 10:
+                <codigo>
+                    for (( i=1; i < 11; i++)) <br>
+                    do <br>
+                    echo $i <br>
+                    done
+                     
+                </codigo>
+            </p>
+
+
+        </article>
+
+    </section>
+</body>

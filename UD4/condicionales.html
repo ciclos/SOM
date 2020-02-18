@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title> Sistemas operativos monopuesto</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Actividades">
+    <meta name="description" content="Actividades">
+    <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+    <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header class="titulo">
+        <h1>Condicionales en Bash</h1>
+    </header>
+
+    <section class="apuntes">
+        <article>
+            <h2> Condicionales </h2>
+            <p>
+                Un condicional es una estructura de control que permite realizar una acción solo si se cumplen ciertas
+                condiciones. <br>
+                En Bash los condicionales se escriben de la siguiente forma:
+                <codigo>
+                    if [[ condicon ]] <br>
+                    then <br>
+                    ... acciones <br>
+                    fi <br>
+                </codigo>
+                Las acciones pueden ser cualquier codigo valido en bash y la condicion se puede forma con los operandos
+                que
+                aparecen en los
+                siguientes apartados.
+            </p>
+            <h2> Operadores de comparación </h2>
+            <p>Para comparar numeros enteros tenemos:
+                <ul>
+                    <li>$a -eq $b Cierto si el contenido de a es igual al de b.</li>
+                    <li>$a -ne $b Cierto si el contenido de a no es igual al de b.</li>
+                    <li>$a -gt $b Cierto si el contenido de a es mayor al de b.</li>
+                    <li>$a -lt $b Cierto si el contenido de a es menor al de b.</li>
+                    <li>$a -ge $b Cierto si el contenido de a es mayor o igual al de b.</li>
+                    <li>$a -le $b Cierto si el contenido de a es menor o igual al de b.</li>
+                </ul>
+            </p>
+            <p>
+                Para comparar cadenas de caracteres tendriamos:
+                <ul>
+                    <li>$a == $b. Será cierto si las cadenas son iguales. </li>
+                    <li>$a != $b. Será cierto si las cadenas son distintas.</li>
+                </ul>
+            </p>
+            <p>
+                Podemos también crear condiciones sobre las propiedades de los ficheros:
+                <ul>
+                    <li>-e f1 Si existe el fichero f1</li>
+                    <li>-r f1 Si f1 tiene permiso de lectura</li>
+                    <li>-w f1 Si f1 tiene permiso de escritura</li>
+                    <li>-x f1 Si tiene permiso de ejecución</li>
+                    <li>f1 -nt f2 Si f1 es mas nuevo que f2</li>
+                    <li>f1 -ot f2 Si f1 es mas viejo que f2</li>
+                    <li>! Negación. Invierte el sentido del test</li>
+                </ul>
+            </p>
+            <h2>Condicional compuesto</h2>
+            <p>
+                Un condicional compuesto realiza unas acciones si la condicion es cierta y otras si la condicion es
+                falsa. En Bash se escribe de la siguiente forma:
+                <codigo>
+                    if [[ condicon ]] <br>
+                    then <br>
+                    ... acciones <br>
+                    else <br>
+                    ... otras acciones
+                    fi <br>
+                </codigo>
+                Podemos ir mas allá anidando condiciones dentro de otras, como las siguientes:
+                <codigo>
+                    if [[ $a > $b ]] <br>
+                    then <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;  echo "mayor" <br>
+                 elif [[ $b > $c ]] <br>
+                    then <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; echo "lo que sea" <br>
+                    else <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; echo "nada de lo anterior" <br>
+                    fi <br>
+                </codigo>
+            </p>
+        </article>
+
+    </section>
+</body>
