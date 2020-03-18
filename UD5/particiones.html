@@ -136,16 +136,46 @@
       </ul>
     </article>
     <article>
+      <h2>Secuencia de arranque</h2>
+      <p>La secuencia de arranque del sistema, simplificada en una serie de pasos, es la siguiente:</p>
+      <p>Paso 1. Cuando el usuario enciende el ordenador (Power o­n) la BIOS1 realiza un chequeo de los componentes
+        hardware y utiliza la configuración establecida para comprobar determinados aspectos del equipo, como pueden ser
+        la hora del sistema, secuencia de arranque (orden en que serán probados los periféricos disponibles y que
+        permiten
+        el arranque de la máquina, como discos duros, CD-ROM/DVD, memorias USB,...), etc.</p>
+      <p> Paso 2. A continuación la BIOS carga en memoria el programa que se encuentra almacenado en el primer sector
+        (sector 0, cuyo tamaño es de 512 bytes) del primer dispositivo en la secuencia de arranque. Se pasa el control
+        de
+        la máquina a dicho programa, llamado gestor de arranque, que contiene las instrucciones, en código máquina, que
+        arrancan el ordenador. Este sector se llama MBR (Master Boot Record).</p>
+      <p>Paso 3. Si el gestor de arranquees multiarranque (soporta el arranque de diferentes sistemas operativos)
+        muestra
+        un menú donde el usuario debe seleccionar el sistema operativo a arrancar. Una vez elegida la opción, el gestor
+        transfiere el control al primer sector de la partición del disco duro, donde está el programa cargador de dicho
+        sistema operativo.
+      </p>
+      <p>
+        Paso 4. El programa cargador del sistema operativo carga el núcleo (kernel), que es ahora el que continua la
+        secuencia hasta quedar listo para el inicio de sesión, por parte del usuario.
+      </p>
+      <p>
+
+        Paso 5. El usuario entra en el sistema introduciendo un nombre de usuario válido para dicho sistema y su
+        contraseña correspondiente. Si ambos son correctos se permite la entrada. Si alguno de ellos no es válido, se
+        vuelve a repetir la identificación completa del usuario.</p>
+
+    </article>
+    <article>
       <h2>MBR</h2>
       <b>Registro de arranque principal</b><span>, conocido también
-          como&nbsp;</span><b>registro de arranque maestro</b><span>&nbsp;(por su nombre en
-          inglés&nbsp;</span><i><b>master boot record</b></i><span>,&nbsp;</span><i><b>MBR</b></i><span>) es el
-          primer&nbsp;</span>sector<span>&nbsp;de un&nbsp;</span>dispositivo de almacenamiento de datos<span>, como
-          un&nbsp;</span>disco duro<span>.</span>&nbsp;La<span>&nbsp;</span><b>tabla de
-          particiones</b><span>&nbsp;</span>está alojada a partir del<span>&nbsp;</span>byte<span>&nbsp;</span>446 y
-        ocupa 64 bytes, conteniendo cuatro registros de 16 bytes, los cuales definen las<span>&nbsp;</span>particiones
-        primarias. En ellos se almacena toda la información básica sobre la partición: si es arrancable, si no lo es,
-        el formato, el tamaño y el sector de inicio.</p>
+        como&nbsp;</span><b>registro de arranque maestro</b><span>&nbsp;(por su nombre en
+        inglés&nbsp;</span><i><b>master boot record</b></i><span>,&nbsp;</span><i><b>MBR</b></i><span>) es el
+        primer&nbsp;</span>sector<span>&nbsp;de un&nbsp;</span>dispositivo de almacenamiento de datos<span>, como
+        un&nbsp;</span>disco duro<span>.</span>&nbsp;La<span>&nbsp;</span><b>tabla de
+        particiones</b><span>&nbsp;</span>está alojada a partir del<span>&nbsp;</span>byte<span>&nbsp;</span>446 y
+      ocupa 64 bytes, conteniendo cuatro registros de 16 bytes, los cuales definen las<span>&nbsp;</span>particiones
+      primarias. En ellos se almacena toda la información básica sobre la partición: si es arrancable, si no lo es,
+      el formato, el tamaño y el sector de inicio.</p>
       <p style="text-align: justify;">El sistema MBR solo permite 4 particiones por disco y para cada una de ellas
         almacena:</p>
       <ul style="text-align: justify;">
@@ -180,7 +210,7 @@
         <li>La información sobre las particiones lógicas de la unidad de almacenamiento se almacena en un único sitio
           y si se corrompe el disco puede quedar irrecuperable.</li>
       </ul>
-     <h2>GPT</h2>
+      <h2>GPT</h2>
       <p style="text-align: justify;"><span>GPT, acrónimo de&nbsp;</span><strong>GUID Partition Table</strong><span>,
           es el nuevo estándar que está sustituyendo a MBR y que está asociado con los nuevos sistemas UEFI. Su nombre
           viene de que a cada partición se le asocia un único identificador global (GUID), un identificador aleatorio
