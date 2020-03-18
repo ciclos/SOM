@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title> Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1>RAID</h1>
+  </header>
+
+  <section class="apuntes">
+    <article>
+      <h2>Raid</h2>
+
+        <p><span>Un&nbsp;</span><b>grupo/matriz redundante de discos independientes</b><span>&#8203;
+            (también,&nbsp;</span><b>RAID</b><span>, del&nbsp;</span>inglés<span>&nbsp;</span><i>redundant array of
+            independent disks</i><span>) hace referencia a un&nbsp;</span>sistema de almacenamiento de
+          datos<span>&nbsp;que utiliza múltiples unidades (</span>discos duros<span>&nbsp;o&nbsp;</span>SSD<span>),
+            entre las cuales se distribuyen o replican los&nbsp;</span>datos<span>.</span></p>
+        <p><span>Dependiendo de su configuración (a la que suele llamarse&nbsp;<i>nivel</i>), los beneficios de un RAID
+            respecto a un único disco son uno o varios de los siguientes: mayor&nbsp;integridad,&nbsp;tolerancia frente
+            a fallos,&nbsp;tasa de transferencia&nbsp;y&nbsp;capacidad.&nbsp;En el nivel más simple, un RAID combina
+            varios discos duros en una sola&nbsp;unidad lógica. Así, en lugar de ver varios discos duros diferentes,
+            el&nbsp;sistema operativo&nbsp;ve uno solo.</span></p>
+        <p>Los niveles RAID más comúnmente usados son:</p>
+        <h3>RAID 0: Conjunto dividido</h3>
+        
+        <img src="imagenes/220px-Raid0.png" alt="">
+        <p><span>Un RAID 0 (también
+            llamado conjunto dividido, volumen dividido, volumen seccionado) distribuye los datos equitativamente entre
+            dos o más discos&nbsp;.&nbsp;El RAID 0 se usa habitualmente para proporcionar un alto rendimiento de
+            escritura ya que los datos se escriben en dos o más discos de forma paralela, aunque un mismo fichero solo
+            está presente una vez en el conjunto. RAID 0 también puede utilizarse como forma de crear un pequeño número
+            de grandes discos virtuales a partir de un gran número de pequeños discos físicos. Un RAID 0 puede ser
+            creado con discos de diferentes tamaños, pero el espacio de almacenamiento añadido al conjunto estará
+            limitado por el tamaño del disco más pequeño.</span></p>
+        <p><span>No debe confundirse RAID 0 con un Volumen Distribuido (Spanned Volume) en el cual se agregan múltiples
+            espacios no usados de varios discos para formar un único disco virtual. Es posible que en un Volumen
+            Distribuido el fichero a recuperar esté presente en un solo disco del conjunto, debido a que aquí no hay una
+            distribución equitativa de los datos (como se mencionó, para RAID 0); por lo tanto, en ese caso no sería
+            posible la recuperación paralela de datos y no mejoraría el rendimiento de lectura.</span></p>
+        <h3>RAID 1: Conjunto en espejo</h3>
+        <img src="imagenes/220px-Raid1.png" alt="">
+        <p>Un RAID 1 crea una
+          copia exacta (o espejo) de un conjunto de datos en dos o más discos. Esto resulta útil cuando queremos tener
+          más seguridad desaprovechando capacidad, ya que si perdemos un disco, tenemos el otro con la misma
+          información. Un conjunto RAID 1 sólo puede ser tan grande como el más pequeño de sus discos. Un RAID 1 clásico
+          consiste en dos discos en espejo, lo que incrementa exponencialmente la fiabilidad respecto a un solo disco;
+          es decir, la probabilidad de fallo del conjunto es igual al producto de las probabilidades de fallo de cada
+          uno de los discos (pues para que el conjunto falle es necesario que lo
+          hagan<span>&nbsp;</span><i>todos</i><span>&nbsp;</span>sus discos).</p>
+        <p>Además, dado que todos los datos están en dos o más discos, con hardware habitualmente independiente, el
+          rendimiento de lectura se incrementa aproximadamente como múltiplo lineal del número de copias; es decir, un
+          RAID 1 puede estar leyendo simultáneamente dos datos diferentes en dos discos diferentes, por lo que su
+          rendimiento se duplica.<span>&nbsp;</span></p>
+        <p>Al escribir, el conjunto se comporta como un único disco, dado que los datos deben ser escritos en todos los
+          discos del RAID 1. Por tanto, el rendimiento de escritura no mejora.</p>
+        <p>El RAID 1 tiene muchas ventajas de administración. Por ejemplo, en algunos entornos<span>&nbsp;</span>24/7,
+          es posible «dividir el espejo»: marcar un disco como inactivo, hacer una<span>&nbsp;</span>copia de
+          seguridad<span>&nbsp;</span>de dicho disco y luego «reconstruir» el espejo.</p>
+        
+
+    </article>
+
+  </section>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <img class="modal-content" id="img01">
+
+  </div>
+  <script type="text/javascript" src="../js/funciones.js">
+  </script>
+
+</body>
+
+</html>
