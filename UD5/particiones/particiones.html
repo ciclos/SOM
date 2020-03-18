@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title> Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1>Particiones</h1>
+  </header>
+
+  <section class="apuntes">
+    <article>
+      <h2>Disco duro</h2>
+      <p style="text-align: justify;"><span style="color: #000000;">Un <strong>disco duro</strong> o disco rígido (en
+          inglés <strong>Hard Disk, HD</strong>) es un dispositivo&nbsp;de almacenamiento de datos <strong>no
+            volátil</strong> que emplea un sistema de&nbsp;grabación <strong>magnética</strong> para almacenar datos
+          digitales. Se compone de uno&nbsp;o más platos o discos rígidos, unidos por un mismo eje que gira a
+          gran&nbsp;velocidad dentro de una caja metálica sellada.&nbsp;Sobre cada plato se sitúa&nbsp;un cabezal de
+          lectura/escritura que flota sobre una delgada lámina de&nbsp;aire generada por la rotación de los
+          discos.</span></p>
+      <p style="text-align: justify;"><span style="color: #000000;">El primer disco duro fue inventado por IBM en 1956.
+          A lo largo de los años, los discos duros han disminuido&nbsp;su precio al mismo tiempo que han multiplicado su
+          capacidad, siendo la principal opción de&nbsp;almacenamiento secundario para PC desde su aparición en los años
+          60. Los discos duros han mantenido&nbsp;su posición dominante gracias a los constantes incrementos en la
+          densidad de grabación, que se ha&nbsp;mantenido a la par de las necesidades de almacenamiento
+          secundario.</span></p>
+      <p style="text-align: justify;"><span style="color: #000000;">Los tamaños también han variado mucho, desde los
+          primeros discos <strong>IBM</strong> hasta los formatos&nbsp;estandarizados actualmente: 3,5" los modelos para
+          PCs y servidores, 2,5" los modelos para dispositivos&nbsp;portátiles. Todos se comunican con la computadora a
+          través del controlador de disco, empleando un&nbsp;interfaz estandarizado.&nbsp;</span></p>
+      <p style="text-align: justify;"><span style="color: #000000;">Otro parámetro en constante evolución es el precio
+          por MB, que decrece también con el tiempo: los discos&nbsp;duros son cada día más rentables. El avance de los
+          discos duros tiene un importante impacto en el&nbsp;rendimiento del PC. En primer lugar, los programas
+          (empezando por el sistema operativo) son cada día&nbsp;más voluminosos y acceden a mayores cantidades de
+          datos. Esto exige capacidad de almacenamiento&nbsp;(para almacenar los programas y los datos), además de
+          velocidad (para agilizar el acceso a dichos datos). Por otro lado, el arranque del PC será más rápido cuanto
+          más veloz sea el disco duro.</span></p>
+      <p style="text-align: justify;"><span style="color: #000000;">Otro punto importante radica en la capacidad
+          <strong>multitarea</strong> de los sistemas operativos actuales. Cuando se&nbsp;ejecutan muchos procesos
+          simultáneos, es probable que no haya suficiente memoria para albergarlos a&nbsp;todos. Lo mismo ocurre si no
+          son muchos los procesos, pero consumen grandes cantidades de memoria.&nbsp;En esos casos, la memoria RAM no
+          proporciona suficiente espacio de almacenamiento, y se utiliza el disco&nbsp;duro como memoria virtual. Si el
+          disco duro no es suficientemente rápido y no dispone de mucho espacio&nbsp;libre, el usuario apreciará que sus
+          programas se ejecutan lentamente y que el sistema operativo apenas&nbsp;responde.</span></p>
+
+    </article>
+    <article>
+      <h2>Estructura logica</h2>
+
+      <p style="text-align: justify;"><span style="color: #000000;">La estructura lógica de un disco duro tiene las
+          siguientes partes.</span></p>
+      <ul style="text-align: justify;">
+        <li><span style="color: #000000;"><strong>Pistas</strong>.&nbsp;La superficie del disco se divide en anillos
+            concéntricos denominados pistas.</span></li>
+        <li><span style="color: #000000;"><strong>Sectores</strong>. Son subdivisiones de las pistas.&nbsp;Suele haber
+            entre 15 y 63 sectores por pista. El tamaño típico de un sector son 512 Bytes.</span></li>
+        <li><span style="color: #000000;"><strong>Cluster</strong>. Es la cantidad de sectores que se leen conjuntamente
+            en una operación de lectura o escritura.&nbsp;</span></li>
+        <li><span style="color: #000000;"><strong>Cilindros</strong>. Esta compuesto por todas las pistas que están en
+            la misma posición en las diferentes caras de cada uno de los platos. Por ejemplo, un disco con cuatro platos
+            tiene un cilindro de 8 pistas.</span></li>
+      </ul>
+      <img src="imagenes/cilindro.jpg" alt="" width="336" height="249">
+      <p style="text-align: justify;"><span style="color: #000000;">Como ejemplo, si un disco tiene 80 pistas, 18
+          sectores y dos caras, se obtiene que 80 pistas x 18</span><br><span style="color: #000000;">sectores/pista x 2
+          caras x 512 bytes = 1,44 MB de capacidad de almacenamiento.</span></p>
+      <p style="text-align: justify;"><span style="color: #000000;">El tamaño del cluster influye en el aprovechamiento
+          del espacio físico del disco, ya que si un archivo no llena por entero el cluster, el espacio sobretante
+          quedará vacio. Por ejemplo, imaginemos que tenemos un clúster de 32 KB, (El DOS y Windows 95 lo utilizaban por
+          defecto en los discos&nbsp;duros). Esto no tendría importancia si no fuera porque un clúster, como ya hemos
+          dicho, es la mínima&nbsp;unidad de lectura o escritura, a nivel lógico, del disco. Es decir, cuando grabamos
+          un archivo, por ejemplo&nbsp;de 10 Kb, estamos empleando un clúster completo, lo que significa que se
+          desperdician 22 Kb de ese&nbsp;clúster. Imaginaos ahora que grabamos 100 ficheros de 10 Kb; perderíamos 100x22
+          Kb, más de 2 Megas.</span></p>
+      <p style="text-align: justify;"><span style="color: #000000;">En el campo del almacenamiento en disco, un factor
+          muy importante es la <strong>densidad superficial</strong>. Ésta mide&nbsp;lo concentrada que se halla la
+          información en el disco. Por ello, si se comparan discos de igual tamaño, a&nbsp;mayor densidad superficial,
+          mayor capacidad de almacenamiento. La densidad superficial se calcula como&nbsp;el producto de otras dos
+          densidades: la densidad de pistas y la densidad lineal.</span></p>
+      <p style="text-align: justify;"><span style="color: #000000;">La <strong>densidad de pistas</strong>&nbsp;indica
+          la cantidad de pistas que existen por unidad de longitud, es decir lo “apretadas” que están las
+          pistas.&nbsp;En esta definición, la longitud se mide en sentido radial, desde el centro del disco, y las
+          unidades son <strong>pistas&nbsp;</strong><strong>por pulgada (PPI) o tracks per inch (TPI).</strong></span>
+      </p>
+      <p style="text-align: justify;"><span style="color: #000000;">La <strong>densidad lineal</strong>, informa sobre
+          lo&nbsp;comprimida que se halla la información dentro de las pistas (es decir, lo “apretados” que están los
+          bits en&nbsp;cada pista)&nbsp;que se mide en <strong>bits por pulgada (BPP) o bits per inch
+            (BPI).</strong></span></p>
+      <p><span style="color: #000000;"><strong><img src="imagenes/bpi_and_tpi.png" width="701" height="270"
+              style="display: block; margin-left: auto; margin-right: auto;"></strong></span></p>
+      <p style="text-align: justify;"><span style="color: #000000;">Finalmente, la estructura de mayor nivel son las
+          <strong>particiones o volúmenes,</strong> que&nbsp;no son más que grupos de cilindros contiguos. El disco se
+          divide en varias&nbsp;particiones, que el sistema operativo hace ver como unidades
+          lógicas&nbsp;diferentes.&nbsp;Aunque se trata del mismo disco, el usuario aprecia varias letras de
+          unidad&nbsp;(en Windows), y cree estar trabajando con varios discos duros de menor&nbsp;tamaño. Una de las
+          ventajas de las particiones consiste en que los cabezales&nbsp;se deberán mover dentro de un grupo conexo de
+          cilindros de menor tamaño,&nbsp;y por tanto deberán realizar menor recorrido para encontrar el
+          cilindro&nbsp;deseado en cada acceso. Esto se traduce en una mayor velocidad de acceso&nbsp;a la
+          información.</span></p>
+
+    </article>
+    <article>
+      <h2>Formateo</h2>
+      <p><span style="color: #000000;">El proceso de formateo prepara un disco para que la información pueda
+          ser&nbsp;almacenada y leída. Podemos distinguir entre formato físico (a bajo nivel) y formateo&nbsp;lógico (de
+          alto nivel).</span></p>
+      <p><span style="color: #000000;">El <strong>formateo físico</strong> crea en el dispositivo la estructura de
+          pistas y sectores. Un disco que no esté formateado físicamente no puede ser usado, ya que no tiene creada
+          la&nbsp; estructura de pistas y sectores necesarios para almacenar información.&nbsp;Normalmente los
+          dispositivos ya vienen formateados físicamente de fábrica.&nbsp;</span><span style="color: #000000;"></span>
+      </p>
+      <p><span style="color: #000000;">En linux se podemos hacer una formateo fisico facilmente mediante el
+          comandos:&nbsp;dd if=/dev/zero of=/dev/hda</span></p>
+      <p><span style="color: #000000;">El <strong>formateo lógico</strong> permite instalar un sistema de archivos en el
+          dispositivo. Normalmente los dispositivos&nbsp;también vienen formateados lógicamente de fábrica, y solemos
+          realizar un nuevo formateo lógico&nbsp;simplemente para eliminar la información del dispositivo. Cuando en un
+          SO realizamos la operación de formateo, siempre estaremos realizando un formateo lógico,&nbsp;para realizar un
+          formateo físico se necesitan herramientas especiales, y es un procedimiento que&nbsp;normalmente no debe
+          llevar a cabo el usuario.&nbsp;En realidad, cuando formateamos un dispositivo no borramos la información
+          almacenada en el volumen&nbsp;de datos, sino que simplemente eliminamos las entradas de directorio de los
+          ficheros, que es donde&nbsp;quedan asignados los clústeres a los ficheros, indicando que todos los clústeres
+          están disponibles.</span></p>
+      <p><span style="color: #000000;">En linux, dependiendo del sistema de archivos que queramos usar, podemos
+          formatear fácilmente mediante los siguientes comandos:</span></p>
+      <ul>
+        <li><span style="color: #000000;"><span>para fat: mkfs.vfat /dev/sda</span><br></span></li>
+        <li><span style="color: #000000;"><span>para ntfs: mkfs.ntfs /dev/sda</span></span></li>
+        <li><span style="color: #000000;"><span>para ext4 mkfs.ext4 /dev/sda</span></span></li>
+      </ul>
+    </article>
+    <article>
+      <h2>MBR</h2>
+      <b>Registro de arranque principal</b><span>, conocido también
+          como&nbsp;</span><b>registro de arranque maestro</b><span>&nbsp;(por su nombre en
+          inglés&nbsp;</span><i><b>master boot record</b></i><span>,&nbsp;</span><i><b>MBR</b></i><span>) es el
+          primer&nbsp;</span>sector<span>&nbsp;de un&nbsp;</span>dispositivo de almacenamiento de datos<span>, como
+          un&nbsp;</span>disco duro<span>.</span>&nbsp;La<span>&nbsp;</span><b>tabla de
+          particiones</b><span>&nbsp;</span>está alojada a partir del<span>&nbsp;</span>byte<span>&nbsp;</span>446 y
+        ocupa 64 bytes, conteniendo cuatro registros de 16 bytes, los cuales definen las<span>&nbsp;</span>particiones
+        primarias. En ellos se almacena toda la información básica sobre la partición: si es arrancable, si no lo es,
+        el formato, el tamaño y el sector de inicio.</p>
+      <p style="text-align: justify;">El sistema MBR solo permite 4 particiones por disco y para cada una de ellas
+        almacena:</p>
+      <ul style="text-align: justify;">
+        <li style="text-align: justify;">Una indicación de si la partición es arrancable, es decir, si contiene un
+          sistema operativo.</li>
+        <li style="text-align: justify;">El CHS&nbsp;(&nbsp;cylinder-head-sector)&nbsp;&nbsp;de inicio y de fin de la
+          partición.</li>
+        <li style="text-align: justify;">El tamaño en sectores.</li>
+        <li style="text-align: justify;">El tipo de partición ( FAT16, FAT32, NTFS, etc)</li>
+      </ul>
+      <p style="text-align: justify;"><u><span lang="ES-MX">Existen 3 tipos diferentes de particiones:</span></u></p>
+      <ul style="text-align: justify;">
+        <li><strong><span lang="ES-MX">Partición primaria:</span></strong><span lang="ES-MX"><strong>&nbsp;</strong>Son
+            las divisiones crudas o primarias del disco, solo puede haber 4 de
+            éstas o 3 primarias y una extendida.&nbsp;</span></li>
+        <li><strong><span lang="ES-MX">Partición extendida:</span></strong><span lang="ES-MX">&nbsp;También conocida
+            como partición secundaria es otro tipo de partición que actúa como una partición primaria; sirve para
+            contener múltiples unidades lógicas en su interior. Fue ideada para romper la limitación de 4 particiones
+            primarias en un solo disco físico. Solo puede existir una partición de este tipo por disco, y solo sirve
+            para contener particiones lógicas. Por lo tanto, es el único tipo de partición que no soporta un sistema
+            de archivos directamente.</span></li>
+        <li><strong><span lang="ES-MX">Partición lógica:</span></strong><span lang="ES-MX"><strong>&nbsp;</strong>Ocupa
+            una porción de la partición extendida o la totalidad de la
+            misma, la cual se ha formateado con un tipo específico de sistema de archivos (FAT32, NTFS, ext2,...) y se
+            le ha asignado una unidad, así el sistema operativo reconoce las particiones lógicas o su sistema de
+            archivos. Puede haber un máximo de 23 particiones lógicas en una partición extendida.&nbsp;</span></li>
+      </ul>
+      <p style="text-align: justify;">Las limitaciones de MBR son las siguientes:</p>
+      <ul style="text-align: justify;">
+        <li>Solo 4 particiones primarias posibles. ( Aunque puede tener mas particiones extendidas.)</li>
+        <li>Cada partición como mucho puede ser de 2TB.</li>
+        <li>La información sobre las particiones lógicas de la unidad de almacenamiento se almacena en un único sitio
+          y si se corrompe el disco puede quedar irrecuperable.</li>
+      </ul>
+     <h2>GPT</h2>
+      <p style="text-align: justify;"><span>GPT, acrónimo de&nbsp;</span><strong>GUID Partition Table</strong><span>,
+          es el nuevo estándar que está sustituyendo a MBR y que está asociado con los nuevos sistemas UEFI. Su nombre
+          viene de que a cada partición se le asocia un único identificador global (GUID), un identificador aleatorio
+          tan largo que cada partición en el mundo podría tener su ID único. A día de hoy, GPT no tiene ningún límite
+          más allá que los que establezcan los propios sistemas operativos, tanto en tamaño como en número de
+          particiones.</span></p>
+      <p style="text-align: justify;"><span><strong>La fiabilidad de los discos GPT es mucho mayor</strong>&nbsp;que
+          la de MBR. Mientas que en esta segunda la tabla de particiones se almacena solo en los primeros sectores del
+          disco, estando en problemas en caso de que se esta se pierde, corrompe o sobrescribe, GPT crea múltiples
+          copias redundantes a lo largo de todo el disco de manera que, en caso de fallo, problema o error, la tabla
+          de particiones se recupera automáticamente desde cualquiera de dichas copias.</span></p>
+      <p style="text-align: justify;"><span>Mientras que el MBR comienza con el código de arranque maestro (Master
+          Boot Code), que contienen un binario ejecutable que identifica la&nbsp;partición activa&nbsp;e inicia el
+          proceso de arranque, la GPT se basa en las capacidades extendidas del&nbsp;EFI&nbsp;para estos procesos. A
+          pesar de que una entrada de MBR comienza el disco, con propósitos de protectividad y compatibilidad con el
+          viejo esquema BIOS PC, la GPT propiamente dicha comienza con la cabecera de la tabla de particiones.</span>
+      </p>
+      <img src="imagenes/Comparativa-MBR-GPT.gif" alt="">
+
+    </article>
+
+  </section>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <img class="modal-content" id="img01">
+
+  </div>
+  <script type="text/javascript" src="../js/funciones.js">
+  </script>
+
+</body>
+
+</html>
