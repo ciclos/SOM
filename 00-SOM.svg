@@ -608,11 +608,11 @@
     <g id="y.node.50">
       <a xlink:href="UD5/programar-tareas">
         <g fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-258,-95)" stroke="white">
-          <rect x="622.4928" y="499.9876" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
+          <rect x="622.4928" y="509.4158" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
         </g>
         <g>
           <g font-size="10px" stroke-linecap="butt" transform="matrix(1,0,0,1,-258,-95)" text-rendering="geometricPrecision" font-family="'DejaVu Serif'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-            <text x="693.8057" xml:space="preserve" y="512.1276" stroke="none">Programar tareas</text>
+            <text x="693.8057" xml:space="preserve" y="521.5558" stroke="none">Programar tareas</text>
           </g>
         </g>
       </a>
@@ -620,11 +620,11 @@
     <g id="y.node.51">
       <a xlink:href="UD5/particiones.html">
         <g fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-258,-95)" stroke="white">
-          <rect x="622.4928" y="518.9876" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
+          <rect x="622.4928" y="530.1627" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
         </g>
         <g>
           <g font-size="10px" stroke-linecap="butt" transform="matrix(1,0,0,1,-258,-95)" text-rendering="geometricPrecision" font-family="'DejaVu Serif'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-            <text x="710.2314" xml:space="preserve" y="531.1276" stroke="none">Particiones</text>
+            <text x="710.2314" xml:space="preserve" y="542.3027" stroke="none">Particiones</text>
           </g>
         </g>
       </a>
@@ -632,23 +632,35 @@
     <g id="y.node.52">
       <a xlink:href="UD5/sistema-ficheros">
         <g fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-258,-95)" stroke="white">
-          <rect x="622.4928" y="480.9876" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
+          <rect x="622.4928" y="488.6689" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
         </g>
         <g>
           <g font-size="10px" stroke-linecap="butt" transform="matrix(1,0,0,1,-258,-95)" text-rendering="geometricPrecision" font-family="'DejaVu Serif'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-            <text x="688.7153" xml:space="preserve" y="493.1277" stroke="none">Sistema de ficheros</text>
+            <text x="688.7153" xml:space="preserve" y="500.8089" stroke="none">Sistema de ficheros</text>
           </g>
         </g>
       </a>
     </g>
     <g id="y.node.53">
-      <a xlink:href="UD5/raid.html">
+      <a xlink:href="UD5/lvm.html">
         <g fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-258,-95)" stroke="white">
-          <rect x="622.4928" y="537.9876" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
+          <rect x="622.4928" y="571.6566" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
         </g>
         <g>
           <g font-size="10px" stroke-linecap="butt" transform="matrix(1,0,0,1,-258,-95)" text-rendering="geometricPrecision" font-family="'DejaVu Serif'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
-            <text x="725.3706" xml:space="preserve" y="550.1276" stroke="none">RAID</text>
+            <text x="726.6792" xml:space="preserve" y="583.7966" stroke="none">LVM</text>
+          </g>
+        </g>
+      </a>
+    </g>
+    <g id="y.node.54">
+      <a xlink:href="UD5/raid.html">
+        <g fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-258,-95)" stroke="white">
+          <rect x="622.4928" y="550.9096" width="232.4743" rx="4" ry="4" height="17.3562" stroke="none"/>
+        </g>
+        <g>
+          <g font-size="10px" stroke-linecap="butt" transform="matrix(1,0,0,1,-258,-95)" text-rendering="geometricPrecision" font-family="'DejaVu Serif'" shape-rendering="geometricPrecision" stroke-miterlimit="1.45">
+            <text x="725.3706" xml:space="preserve" y="563.0496" stroke="none">RAID</text>
           </g>
         </g>
       </a>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title> Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1>Particiones</h1>
+  </header>
+
+  <section class="apuntes">
+    <article>
+      <H2>LVM</H2>
+      <p><span>De forma simplificada&nbsp;podríamos decir que&nbsp;</span><em>LVM</em><span>&nbsp;es una capa de
+          abstracción entre un dispositivo de almacenamiento (por ejemplo un disco) y un sistema de
+          ficheros.&nbsp;</span></p>
+      <p><span>Las ventajas que tienen son múltiples, pero la inicial y más evidente&nbsp;es la flexibilidad frente al
+          particionado tradicional. Pongamos (sin&nbsp;<em>LVM</em>) que creamos 4 particiones contiguas en un disco. Si
+          en el futuro quisieramos aumentar&nbsp;alguna de las 3 primeras no podríamos hacerlo sin borrar las
+          siguientes, lo que es complejo, peligroso y requiere de parada del servicio casi seguro. Pongamos que
+          quisieramos ampliar la última, siempre tendríamos el límite del tamaño del disco. Pongamos que compramos un
+          disco nuevo, y queremos ampliar el espacio de un sistema de ficheros existente en el disco anterior con el
+          espacio nuevo, imposible salvo con «ñapas» de nuevos sistemas de ficheros y puntos de montaje.
+          Con&nbsp;<em>LVM</em>&nbsp;todas esas limitaciones desaparecen. Podemos aumentar sus «particiones» (volúmenes
+          lógicos en adelante) independientemente de que no haya espacio libre contiguo a éstas. Podemos aumentar sus
+          volúmenes lógicos con espacio libre de diferentes discos físicos. E incluso podemos mover volúmenes lógicos
+          entre dispositivos físicos. Y lo mejor de todo… ¡en caliente! Sin desmontar el sistema de ficheros, ¡sin parar
+          un servicio!&nbsp;</span></p>
+      <h2>Nomenglatura</h2>
+      <ul>
+        <li><strong>Volumen físico/Physical Volume (PV)</strong>. Un volumen físico (PV en adelante) es un dispositivo
+          de almacenamiento, o más correctamente expresado un dispositivo de bloque. Puede ser un disco duro, una
+          partición, una tarjeta SD, un floppy, un dispositivo RAID, etc. Para simplificar diremos que un PV es una
+          fuente de almacenamiento, es decir un dispositivo que nos proporciona espacio. En el ejemplo más sencillo: el
+          disco duro de nuestra máquina, o una partición en él. Un PV no hay que formatearlo, simplemente se le
+          entregará al<span>&nbsp;</span><em>LVM</em><span>&nbsp;</span>«en crudo» y desde ese momento será gestionado
+          por el LVM, no volveremos a tocarlo.</li>
+        <li><strong>Grupo de volúmenes/Volume Group (VG)</strong><span>. Para poder usar el
+            espacio/almacenamiento&nbsp;de un PV, éste debe pertenecer a un Grupo de volúmenes (en adelante VG). El VG
+            será el centro del universo&nbsp;</span><em>LVM</em><span>. Podemos decir que un VG es una especie de disco
+            duro virtual (ya veo a los puristas rasgándose las vestiduras). Un VG es&nbsp;un «disco» compuesto de UNO o
+            más PVs y que crece simplemente añadiendo&nbsp;más&nbsp;PVs. A diferencia de un disco real, un VG puede
+            crecer con el tiempo, sólo hay que «darle» un PV más. En una máquina con un sólo disco podemos crear un VG
+            que esté compuesto por un sólo PV (el disco físico o una de sus particiones). Si con el tiempo nos quedamos
+            sin espacio en el VG, compramos otro disco (PV), lo añadimos al VG y el resto es transparente para sistemas
+            de ficheros, procesos o usuarios.</span></li>
+        <li><span><strong>Volumen Lógico/Logical Volume (LV)</strong>. Los volúmenes lógicos (en adelante LV) son «el
+            producto final» del&nbsp;<em>LVM</em>. Son estos dispositivos los que usaremos para crear sistemas de
+            ficheros, swap, discos para máquinas virtuales, etc… Por seguir con la analogía del «disco duro virtual» que
+            es el VG, los LVs serían&nbsp;las particiones. Con los que vamos a trabajar realmente. A diferencia de «sus
+            primas» las particiones tradicionales, los LVs pueden crecer (mientras haya espacio en el VG)
+            independientemente de la posición en la que estén, incluso expandiéndose por diferentes PVs. Un LV de 1G
+            puede estar compuesto de 200MB procedentes de&nbsp;un disco duro, 400MB de&nbsp;un RAID software, y 400MB de
+            una partición en un tercer dispositivo físico. El único requisito es que todo los PVs pertenezcan al mismo
+            VG.</span></li>
+      </ul>
+      <p>Con estos términos claros podemos explicar mejor la flexibilidad del&nbsp;<em>LVM</em>&nbsp;con unos ejemplos:
+      </p>
+      <ul>
+        <li>Un LV puede crecer siempre que haya espacio libre en el VG al que pertenece.
+          El<span>&nbsp;</span><em>LVM</em><span>&nbsp;</span>se encarga de que lo que haya sobre el LV (frecuentemente
+          un sistema de ficheros) vea todo el espacio continuo. Podemos crear inicialmente un LV usando espacio de un
+          PV, pero si posteriormente queremos aumentarlo, aunque no quede espacio en el PV original, podemos usar
+          espacio de cualquier PV que pertenezca al VG. Para el sistema de ficheros será transparente.</li>
+        <li>Podemos cambiar el espacio asignado &nbsp;de un PV a un LV a otro PV (que tenga espacio suficiente libre).
+          Me explico, yo puedo crear un LV de 10G en un PV que sea un disco. Si posteriormente meto en el VG un PV que
+          sea un RAID, podría mover los 10G que estaba usando del disco al RAID, en caliente y de forma transparente al
+          sistema de ficheros y las aplicaciones que lo usan. De forma que si con el tiempo puedo mejorar el hardware de
+          la máquina, no tengo porque volver a crear un sistema de ficheros, copiar los datos y cambiar el montaje. Con
+          LVM simplemente digo: los 10G del LV que están en un PV los quiero mover a un PV diferente. Y el hará la
+          mudanza sin interrumpir el funcionamiento del sistema.</li>
+        <li>Para poder disfrutar al máximo de la flexibilidad del LVM es importante tener la mayor cantidad de espacio
+          libre en el VG (volveré a este tema más tarde), pero tarde o temprano nos quedaremos sin espacio en un VG
+          (porque usemos todo el espacio de sus PVs). Bien, esto, que tradicionalmente es bastante complicado de
+          gestionar, con LVM es tan sencillo como darle otro PV al VG. Añadimos&nbsp;un disco (PV) a la máquina y lo
+          asignamos&nbsp;al VG, que pasa a tener todo ese espacio nuevo disponible para cualquiera de los LVs que
+          contenga. O para crear LVs nuevos.</li>
+      </ul>
+      <h2>Comandos linux</h2>
+      <p>En sistemas Linux modernos, en la instalación del sistema es posible seleccionar el particionado LVM, frente al particionado tradicional.
+        Una vez instalado, podemos gestionar LVM por medio de comandos. En resumen los comandos principales para el particionado LVM son: </p>
+      <ul>
+        <li>pvcreate : creamos un pv</li>
+        <li>pvs: mostramos los pv existentes</li>
+        <li>vgcreate: crea un grupo de volumenes</li>
+        <li>  vgs ( vgdisplay ): muestra los grupos de volumenes</li>
+        <li>lvcreate: crea volumenes logicos</li>
+        <li>lvs (lvdisplay ): muestra los volumenes logicos </li>
+      </ul>
+        
+    </article>
+
+  </section>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <img class="modal-content" id="img01">
+
+  </div>
+  <script type="text/javascript" src="../js/funciones.js">
+  </script>
+
+</body>
+
+</html>
