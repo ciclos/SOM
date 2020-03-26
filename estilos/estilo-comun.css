@@ -10,6 +10,10 @@ li b:after{
     font: 1em tahoma;
 }*/
 
+li{
+    margin: 1em 0;
+}
+
 .titulo h1{
     text-align: center;
     font: 2em arial;
@@ -249,4 +253,43 @@ div.hamburger {
 #migasPan a{
     text-decoration: none;
     color: white;
+}
+
+
+/************ 
+ACORDEON
+************/
+.accordion {
+  background-color: #ccc;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-image: linear-gradient(to right, #ccc, #ccc, black);
+}
+
+.accordion::before {
+  content: '\002B';
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.active::before {
+  content: "\2212 ";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #eee;
+  transition: 1s;
+  transform: translateX(0);
 }

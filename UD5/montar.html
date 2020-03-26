@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title> Sistemas operativos monopuesto</title>
+  <meta charset="UTF-8">
+  <meta name="title" content="Actividades">
+  <meta name="description" content="Actividades">
+  <link href="../estilos/estilo-apuntes.css" rel="stylesheet" type="text/css" />
+  <link href="../estilos/estilo-comun.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1> Montaje </h1>
+  </header>
+
+  <section class="apuntes">
+    <article>
+      <h2>Montar</h2>
+      <p>
+        Se denomina <strong>montar</strong>, en informática, a la acción de integrar un sistema de archivos alojado en
+        un determinado dispositivo dentro del árbol de directorios de un sistema operativo.
+      </p>
+      <p>En los sistemas operativos Unix/Linux solamente existe un único árbol de directorios donde se organizan los
+        archivos. No existe el concepto de unidad de disco propia de sistemas operativos tales como MS-DOS o Windows.
+      </p>
+      <p>Cada dispositivo de disco (disco duro, CD-ROM, pendrive, etc.) aloja un sistema de archivos que,
+        conceptualmente, no es más que un árbol de directorios. Dicho árbol puede ser integrado en el árbol único de
+        Unix utilizando un <strong>punto de montaje</strong>. El punto de montaje es cualquier directorio a partir del
+        cual se
+        visualizará el sistema de archivos montado. Si el punto de montaje contenía ficheros, estos desaparecerán, para
+        visualizar los del dispositivo montado.</p>
+      <p>Actualmente el sistema de archivos NTFS de Microsoft utilizado en Windows también soporta puntos de montaje de
+        volúmenes, asignándole letras estándares de dispositivos, (G:, F:), o carpetas que estén situadas dentro de un
+        volumen ntfs.</p>
+      <p>Por ejemplo, supongamos que un sistema de archivos Unix consta de los siguientes directorios:</p>
+      <img src="imagenes/puntoMontaje1.png" alt="">
+      <p>Y supongamos que tenemos un dispositivo CD-ROM que contiene los siguientes directorios:</p>
+      <img src="imagenes/puntoMontaje2.png" alt="">
+
+      <p>Si elegimos /mnt/cdrom como punto de montaje, el resultado sería el siguiente árbol:</p>
+      <img src="imagenes/puntoMontaje3.png" alt="">
+      <h2>Orden mount</h2>
+      <p>mount es un comando de sistemas basados en Unix que se utiliza para montar dispositivos y particiones para su
+        uso por el sistema operativo. Las sintaxis de esta orden es: </p>
+      <p> mount -t tipo -o opciones dispositivo punto_de_montaje</p>
+      <p> por ejemplo:</p>
+      <p> mount -t iso9660 /dev/hdb0 /mnt/cdrom</p>
+    </article>
+    <article>
+      <h2>fstab</h2>
+      <p>El fichero fstab (file systems table) se encuentra comúnmente en sistemas Unix (en el directorio /etc/) como
+        parte de la configuración del sistema. Lo más destacado de este fichero es la lista de discos y particiones
+        disponibles. En ella se indica como montar cada dispositivo y qué configuración utilizar.</p>
+      <p>La estructura de las instrucciones es de 6 columnas separadas por espacios o tabuladores:</p>
+      <p>dispositivo punto_de_montaje sistema_de_archivos opciones dump-freq pass-num</p>
+      <ul>
+        <li><strong>dispositivo</strong>: es el directorio lógico que hace referencia a una partición o recurso.
+          <button class="accordion">Dispositivos</button>
+          <ul class="panel">
+            <li><strong>fd0 </strong> Primera unidad de disquetes (a: en sistemas MS-DOS y Windows).</li>
+            <li><strong>fd1 </strong> Segunda unidad de disquetes (b: en sistemas MS-DOS y Windows).</li>
+            <li><strong>hda </strong> Primer disco duro IDE (Primary Master).</li>
+            <li><strong>hda0</strong> Primera partición del primer disco duro IDE (Primary Master).</li>
+            <li><strong>hda1</strong> Segunda partición del primer disco duro IDE (Primary Slave).</li>
+            <li><strong>hdb0</strong> Primera partición del segundo disco duro IDE (Secondary Master).</li>
+            <li><strong>hdb1</strong> Segunda partición del segundo disco duro IDE (Secondary Slave).</li>
+            <li><strong>sda </strong> Primer disco duro SCSI.</li>
+            <li><strong>sda1</strong> Primera partición del primer disco duro SCSI.</li>
+            <li><strong>sdb </strong> Primera unidad de llave usb (Memoria USB).</li>
+            <li><strong>sdb4</strong> Cuarta partición del segundo disco duro SCSI.</li>
+            <li><strong>scd0</strong> Primera unidad de CD-ROM SCSI.</li>
+            <li><strong>scd1</strong> Segunda unidad de CD-ROM SCSI.</li>
+            <li><strong>sga </strong> Primer dispositivo genérico SCSI (scanner, etc.).</li>
+            <li><strong>sgb </strong> Segundo dispositivo genérico SCSI.</li>
+            <li><strong>sg0 </strong> Primer dispositivo genérico SCSI en sistemas nuevos.</li>
+            <li><strong>sg1 </strong> Segundo dispositivo genérico SCSI en sistemas nuevos.</li>
+          </ul>
+        </li>
+        <li><strong>punto_de_montaje</strong>: es la carpeta en que se proyectarán los datos del sistema de archivos.
+        </li>
+        <li><strong>sistema de archivos</strong>: el algoritmo que interpreta los ficheros
+          <button class="accordion">Sistemas de archivos</button>
+          <ul class="panel">
+            <li><strong>auto </strong>(intenta descubrir automáticamente el sistema de archivos).</li>
+            <li><strong>iso9660 </strong>(sistema de archivos de los CD y DVD).</li>
+            <li><strong>ext2 </strong>(sistema de archivos muy extendido en máquinas Linux).</li>
+            <li><strong>ext3 </strong>(igual que ext2 pero además añade journaling).</li>
+            <li><strong>ext4 </strong>(introdujo significativas mejoras respecto a ext3)</li>
+            <li><strong>reiserfs</strong> (otro sistema muy utilizado en máquinas Linux).</li>
+            <li><strong>msdos </strong>(para dispositivos que usen FAT12 o FAT16).</li>
+            <li><strong>vfat </strong>(para dispositivos que usen FAT32).</li>
+            <li><strong>ntfs </strong>(sistema de archivos NTFS de Windows NT, XP, etc.).</li>
+            <li><strong>smbfs </strong> (sistema de archivos de Samba).</li>
+            <li><strong>nfs </strong> (sistema de archivos de red NFS).</li>
+            <li><strong>hfs y hfsplus </strong>(acceden a sistemas de archivos de Apple Macintosh).</li>
+          </ul>
+        </li>
+
+        <li><strong>opciones</strong>: es el lugar donde se especifican los parámetros que mount utilizará para montar
+          el dispositivo, deben estar separadas por comas.
+          <button class="accordion">Opciones</button>
+          <ul class="panel">
+            <li><strong>auto / noauto </strong> Con la opción auto, el dispositivo será montado automáticamente
+              durante
+              el inicio o en
+              caso de que el comando mount -a sea ejecutado. auto es el valor por defecto. Si no se desea que el
+              dispositivo se monte automáticamente, se deberá substituir por noauto.</li>
+            <li><strong>dev / nodev</strong> Interpretar / no interpretar dispositivos especiales de bloques en el
+              sistema de archivos.
+              Los dispositivos especiales de bloques son similares a discos (donde se puede acceder a los datos dado
+              un
+              número de bloque, y p.ej. tiene sentido tener un caché de bloques). Todos los otros dispositivos son
+              ficheros especiales de caracteres. Hace tiempo la distinción era diferente: la E/S a un fichero especial
+              de caracteres sería sin búfer, y a un fichero especial de bloques, con búfer.</li>
+            <li><strong>exec / noexec</strong> exec permite ejecutar binarios que están en la partición, mientras que
+              noexec lo impide.
+              noexec puede resultar útil en una partición que contenga binarios que se deseen ejecutar en el sistema,
+              o
+              que no deban ser ejecutados. Este podría ser el caso de la partición de Windows.</li>
+            <li><strong>ro</strong> Montar para sólo lectura.</li>
+            <li><strong>rw</strong> Montar el sistema de archivos para lectura/escritura. Utilizando esta opción,
+              muchos
+              nuevos usuarios
+              confusos, por no poder escribir en sus discos o particiones de Windows, pueden solucionar el problema.
+            </li>
+            <li><strong>sync / async</strong> Esta opción indica la manera en que se debe realizar la entrada y salida
+              del sistema de
+              archivos. sync especifica que se realice de manera síncrona. Para verlo en un ejemplo de un fstab,
+              nótese
+              que esta opción aparece en la unidad de discos flexibles. En particular sirve, si se está escribiendo en
+              una unidad con la opción activada, para que los cambios sean realizados físicamente en el dispositivo a
+              la
+              vez que se invoca el comando correspondiente.</li>
+            <li><strong>suid / nosuid</strong> Permite / bloquea la operación sobre los bits suid y sgid.</li>
+            <li><strong>user / nouser</strong> Permite a cualquier usuario montar el sistema de archivos. Implica
+              directamente las
+              opciones noexec, nosuid y nodev a menos que se especifiquen otras. Si se utiliza la opción nouser, solo
+              el
+              usuario root podrá montar el sistema de archivos.</li>
+            <li><strong>defaults</strong> Utiliza las opciones por defecto: rw,suid,dev,exec,auto,nouser,async.</li>
+            <li><strong>nofail</strong> No devuelve error si no se puede montar el dispositivo.</li>
+          </ul>
+        </li>
+        <li><strong>dump-freq:</strong> es el comando que utiliza dump para hacer respaldos del sistema de archivos.
+          Puede tomar dos valores: 0 y 1. Con 0 se indica que no se debe backupear, con 1 que sí se haga. Lógicamente,
+          depende de que se tenga instalado y configurado dump, por lo que en la mayoría de los casos este campo es 0..
+        </li>
+        <li><strong>pass-num:</strong> indica el orden en que la aplicación fsck revisará la partición en busca de
+          errores durante el inicio. Las posibilidades son 0, 1 y 2. El 0 indica que el filesystem no debe ser
+          chequeado, mientras que el 1
+          y el 2 le dicen a fsck que sí lo chequee. La diferencia es que el 1 representa una prioridad mayor que el 2,
+          por lo que debe utilizarse para el sistema raíz y el 2 para el resto de los sistemas de archivos.
+        </li>
+      </ul>
+      <p>A continuación un ejemplo de archivo fstab</p>
+      <img src="imagenes/fstab.png" alt="">
+    </article>
+
+
+  </section>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <img class="modal-content" id="img01">
+
+  </div>
+  <script type="text/javascript" src="../js/funciones.js">
+  </script>
+
+</body>
+
+</html>
