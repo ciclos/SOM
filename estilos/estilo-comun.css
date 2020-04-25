@@ -260,7 +260,8 @@ div.hamburger {
 ACORDEON
 ************/
 .accordion {
-  background-color: #ccc;
+    background-image: linear-gradient(to right, rgb(47, 243, 90),rgb(47, 243, 90), white);
+    border-radius: 0.2em;
   cursor: pointer;
   width: 100%;
   border: none;
@@ -270,7 +271,7 @@ ACORDEON
 }
 
 .active, .accordion:hover {
-  background-image: linear-gradient(to right, #ccc, #ccc, black);
+    transform: scale(1.1);
 }
 
 .accordion::before {
@@ -285,11 +286,10 @@ ACORDEON
 
 .panel {
   padding: 0 18px;
-  background-color: white;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #eee;
+  background-color: rgb(181, 255, 181);
   transition: 1s;
   transform: translateX(0);
 }
